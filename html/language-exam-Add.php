@@ -393,9 +393,27 @@
                                 <div class="col-md-2">
                                     <select name="result" id="result" class="form-select color-dropdown">
                                       <option value="bg-secondary " selected>-----</option>
-                                      <option value="1" >ผ่าน</option>
-                                      <option value="0" >ไม่ผ่าน</option>
+                                      <option value="s" >ผ่าน</option>
+                                      <option value="u" >ไม่ผ่าน</option>
                                     </select>
+                                </div>
+                              </div>
+                              <div class="mb-3 row">
+                              <label class="col-md-2 col-form-label" for="selectTypeOpt">
+                                  <h5>ประเภทการสอบ</h5>
+                                  </label>
+                                <div class="col-md-2">
+                                    <select name="examType" id="examType" class="form-select color-dropdown">
+                                      <option value="bg-secondary " selected>-----</option>
+                                      <option value="1" >on-site</option>
+                                      <option value="2" >online</option>
+                                    </select>
+                                </div>
+                                <label for="html5-text-input" class="col-md-2 col-form-label">
+                                  <h5>รอบที่สอบ</h5>
+                                  </label>
+                                <div class="col-md-1">
+                                  <input name="round" class="form-control" type="text" placeholder="1" id="html5-text-input" />
                                 </div>
                               </div>
                               <h3 class="card-header">Skill</h3>

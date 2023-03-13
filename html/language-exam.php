@@ -295,8 +295,8 @@ $result = mysqli_query($mysqli,$query);
                     
                         <div class="row">
                           <h3 class="card-header">ผลสอบภาษา</h3>
-                                  <div class="table">
-                                    <table class="table table-striped table-borderless border-bottom">
+                                  <div class="table-responsive text-norap">
+                                    <table class="table table-striped ">
                                       
                                       <thead>
                                         <tr align="center">
@@ -308,6 +308,8 @@ $result = mysqli_query($mysqli,$query);
                                           <th class="text-nowrap">ภาคเรียนที่</th>
                                           <th class="text-nowrap">ปีการศึกษา</th>
                                           <th class="text-nowrap text-center">ผลการสอบ</th>
+                                          <th class="text-nowrap">ประเภทการสอบ</th>
+                                          <th class="text-nowrap text-center">รอบที่สอบ</th>
                                           <th class="text-nowrap">action</th>
                                         </tr>
                                       </thead>
@@ -337,11 +339,18 @@ $result = mysqli_query($mysqli,$query);
                                           <td class="text-nowrap"><?php echo $row["term"] ?></td>
                                           <td class="text-nowrap"><?php echo $row["years"] ?></td>
                                           <td class="text-nowrap"><?php 
-                                          if ($row["result"]=='0') {
+                                          if ($row["result"]=='u') {
                                             echo "ไม่ผ่าน";
-                                          }elseif ($row["result"]=='1') {
+                                          }elseif ($row["result"]=='s') {
                                             echo "ผ่าน";
                                           } ?></td>
+                                          <td class="text-nowrap"><?php 
+                                          if ($row["examType"]=='1') {
+                                            echo "on-site";
+                                          }elseif ($row["examType"]=='2') {
+                                            echo "online";
+                                          } ?></td>
+                                          <td class="text-nowrap"><?php echo $row["round"] ?></td>
                                           <td>
                                             <div class="dropdown">
                                               <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

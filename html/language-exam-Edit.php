@@ -429,15 +429,41 @@ $result = mysqli_query($mysqli,$query);
                                 <div class="col-md-2">
                                     <select name="result" id="result" class="form-select color-dropdown">
                                       <option value=" " selected>-----</option>
-                                      <option value="1" <?php 
-                                      if ($row["result"]=='1') {
+                                      <option value="s" <?php 
+                                      if ($row["result"]=='s') {
                                         echo "selected";
                                       } ?>>ผ่าน</option>
-                                      <option value="0" <?php 
-                                      if ($row["result"]=='0') {
+                                      <option value="u" <?php 
+                                      if ($row["result"]=='u') {
                                         echo "selected";
                                       } ?>>ไม่ผ่าน</option>
                                     </select>
+                                </div>
+                              </div>
+                              <div class="mb-3 row">
+                                <label class="col-md-2 col-form-label" for="selectTypeOpt">
+                                  <h5>ประเภทการสอบ</h5>
+                                  </label>
+                                <div class="col-md-2">
+                                    <select name="examType" id="examType" class="form-select color-dropdown">
+                                      <option value=" " selected>-----</option>
+                                      <option value="1" <?php 
+                                      if ($row["examType"]=='1') {
+                                        echo "selected";
+                                      } ?>>on-site</option>
+                                      <option value="2" <?php 
+                                      if ($row["examType"]=='2') {
+                                        echo "selected";
+                                      } ?>>online</option>
+                                    </select>
+                                </div>
+                              </div>
+                              <div class="mb-3 row">
+                                <label for="html5-text-input" class="col-md-2 col-form-label" >
+                                  <h5>รอบที่สอบ</h5>
+                                  </label>
+                                <div class="col-md-2">
+                                  <input name="round" class="form-control" type="text" value="<?php echo $row["round"]?>"  />
                                 </div>
                               </div>
                               <h3 class="card-header">Skill</h3>

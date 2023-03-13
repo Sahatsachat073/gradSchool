@@ -322,6 +322,8 @@ $result = mysqli_query($mysqli,$query);
                                           <th class="text-nowrap">ภาคเรียนที่</th>
                                           <th class="text-nowrap">ปีการศึกษา</th>
                                           <th class="text-nowrap">ผลการสอบ</th>
+                                          <th class="text-nowrap">ประเภทการสอบ</th>
+                                          <th class="text-nowrap text-center">รอบที่สอบ</th>
                                           
                                         </tr>
                                       </thead>
@@ -353,6 +355,13 @@ $result = mysqli_query($mysqli,$query);
                                           }elseif ($row["result"]=='1') {
                                             echo "ผ่าน";
                                           } ?></td>
+                                          <td class="text-nowrap"><?php 
+                                          if ($row["examType"]=='1') {
+                                            echo "on-site";
+                                          }elseif ($row["examType"]=='2') {
+                                            echo "online";
+                                          } ?></td>
+                                          <td class="text-nowrap"><?php echo $row["round"] ?></td>
                                           
                                         </tr>
                                         <?php endwhile ?>

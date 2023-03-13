@@ -3,6 +3,7 @@ require_once("../fpdf/fpdf.php");
 //  require_once("./fpdf.php");
  require_once( "../inc/db_connect.php" );
 
+ 
  class PDF_Rotate extends FPDF
  {
  var $angle=0;
@@ -63,7 +64,7 @@ require_once("../fpdf/fpdf.php");
   $pdf->SetY(38);
   $pdf->SetFont('times','','14');
   $pdf->Cell(0,10,'Mahasarakham Uniuversity',0,1,'C');
-  $pdf->Cell(0,5,'Title: Result Language Exam',0,1,'C');
+  $pdf->Cell(0,8,'Title: Result Language Exam',0,1,'C');
   $query = "SELECT * FROM info_result_language_exam ";
  
   $mysqli = connect();
@@ -73,26 +74,29 @@ require_once("../fpdf/fpdf.php");
  
   $pdf->SetFont('times','','14');
   $pdf->Cell(31,10,'studentID',1,0,'C');
-  $pdf->Cell(20,10,'type',1,0,'C');
-  $pdf->Cell(20,10,'score',1,0,'C');
-  $pdf->Cell(32,10,'date',1,0,'C');
-  $pdf->Cell(30,10,'term',1,0,'C');
-  $pdf->Cell(30,10,'year',1,0,'C');
-  $pdf->Cell(0,10,'result',1,1,'C');
- 
+  $pdf->Cell(15,10,'type',1,0,'C');
+  $pdf->Cell(15,10,'score',1,0,'C');
+  $pdf->Cell(30,10,'date',1,0,'C');
+  $pdf->Cell(15,10,'term',1,0,'C');
+  $pdf->Cell(20,10,'year',1,0,'C');
+  $pdf->Cell(15,10,'result',1,0,'C');
+  $pdf->Cell(30,10,'examType',1,0,'C');
+  $pdf->Cell(0,10,'round',1,1,'C');
   
   do {
   $pdf->Cell(31,10,$row['stu_id'],1,0,'C');
-  $pdf->Cell(20,10,$row['types'] ,1,0,'C');
-  $pdf->Cell(20,10,$row['score'],1,0,'C');
-  $pdf->Cell(32,10,$row['dates'],1,0,'C');
-  $pdf->Cell(30,10,$row['term'],1,0,'C');
-  $pdf->Cell(30,10,$row['years'],1,0,'C');
-  $pdf->Cell(0,10,$row['result'],1,1,'C');
+  $pdf->Cell(15,10,$row['types'] ,1,0,'C');
+  $pdf->Cell(15,10,$row['score'],1,0,'C');
+  $pdf->Cell(30,10,$row['dates'],1,0,'C');
+  $pdf->Cell(15,10,$row['term'],1,0,'C');
+  $pdf->Cell(20,10,$row['years'],1,0,'C');
+  $pdf->Cell(15,10,$row['result'],1,0,'C');
+  $pdf->Cell(30,10,$row['examType'],1,0,'C');
+  $pdf->Cell(0,10,$row['round'],1,1,'C');
   
   } while ($row =mysqli_fetch_assoc($result) );
   $pdf->SetFont('times','B','10');
-  $pdf->Cell(0,10,'Type 1=exam, 2=compare |  Result 0=fail, 1=pass',0,1,'L');
+  $pdf->Cell(0,10,'Type 1=exam, 2=compare |  Result u=fail, s=pass | ExamType 1=on-site, 2=online',0,1,'L');
   $pdf->Cell(0,10,'sig(.................................................................)',0,1,'R');
   $pdf->Cell(0,5,'(....................................................)      ',0,1,'R');
   $pdf->Cell(0,5,'Dean of the Graduate School         ',0,1,'R');

@@ -14,6 +14,8 @@ $mysqli = connect();
  $term = $_POST['term'];
  $years =$_POST['years'];
  $result =$_POST['result'];
+ $examType =$_POST['examType'];
+ $round =$_POST['round'];
 
   
 
@@ -119,7 +121,9 @@ score='$score',
 dates='$dates',
  term='$term',
  years='$years',
- result='$result'
+ result='$result',
+ examType='$examType',
+ round='$round'
  WHERE id = '".$_POST["id"]."' " ;
   // echo $sql;
  $objQuery = $mysqli->query($sql);

@@ -14,6 +14,8 @@ $mysqli = connect();
  $term = $_POST['term'];
  $years =$_POST['years'];
  $result =$_POST['result'];
+ $examType =$_POST['examType'];
+ $round =$_POST['round'];
 
  $uploaddir = 'fileUpload/';
  $uploadfiles =$_FILES['certificates']['name'];
@@ -33,7 +35,7 @@ if (move_uploaded_file($_FILES['certificates']['tmp_name'], 'fileUpload/'.$uploa
 
  
 $sql ="INSERT INTO info_result_language_exam (stu_id,types,score,certificates,dates,
- term,years,result) VALUES ('$sid','$types','$score','$uploadfiles','$dates','$term','$years','$result')";
+ term,years,result,examType,round) VALUES ('$sid','$types','$score','$uploadfiles','$dates','$term','$years','$result','$examType','$round')";
  //echo $sql;
 //  $rs = $mysqli->query( $sql );
 if ($mysqli->query($sql)) {
